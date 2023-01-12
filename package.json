@@ -5,8 +5,21 @@
   "repository": "https://github.com/inceon/strava-exporter.git",
   "main": "index.js",
   "scripts": {
+    "build": "node esbuild.conf.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@chialab/esbuild-plugin-html": "^0.17.2",
+    "esbuild": "^0.16.13"
+  },
+  "dependencies": {
+    "@badgateway/oauth2-client": "^2.0.17",
+    "@mapbox/polyline": "^1.1.1",
+    "leaflet": "^1.9.3",
+    "pixi-svg": "^3.2.0",
+    "pixi.js": "6.4.2",
+    "strava": "^2.1.0"
+  }
 }
