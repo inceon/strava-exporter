@@ -5,7 +5,7 @@
   "repository": "https://github.com/inceon/strava-exporter.git",
   "main": "index.js",
   "scripts": {
-    "build": "node esbuild.conf.js",
+    "build": "node ./esbuild.conf.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,11 +15,16 @@
     "esbuild": "^0.16.13"
   },
   "dependencies": {
-    "@badgateway/oauth2-client": "^2.0.17",
-    "@mapbox/polyline": "^1.1.1",
+    "@badgateway/oauth2-client": "2.0.17",
+    "@mapbox/polyline": "1.1.1",
+    "@pixi/display": "^7.1.0",
+    "@pixi/filter-drop-shadow": "5.1",
+    "chalk": "^5.2.0",
+    "esbuild-plugin-clean": "^1.0.1",
+    "esbuild-plugin-copy": "^2.0.2",
     "leaflet": "^1.9.3",
     "pixi-svg": "^3.2.0",
-    "pixi.js": "6.4.2",
-    "strava": "^2.1.0"
+    "pixi.js": "^7.1.0",
+    "strava": "2.1.0"
   }
 }
