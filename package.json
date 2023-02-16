@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./esbuild.conf.mjs",
+    "prod": "node ./esbuild.prod.conf.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
