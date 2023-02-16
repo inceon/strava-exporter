@@ -1,6 +1,8 @@
 import { copy } from 'esbuild-plugin-copy'
 import { clean } from 'esbuild-plugin-clean'
 import { build, serve } from 'esbuild'
+import chalk from "chalk";
+import moment from "moment";
 
 const publicDir = './public';
 const publicOutputDir = './server';
@@ -10,6 +12,7 @@ build({
     bundle: true,
     minify: true,
     sourcemap: true,
+    tsconfig: './tsconfig.json',
     target: [],
     outdir: publicOutputDir,
     assetNames: 'assets/[name]-[hash]',

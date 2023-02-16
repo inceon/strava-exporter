@@ -9,6 +9,7 @@
       "es6",
       "dom"
     ],
+    "target": "es6",
     "rootDir": "src",
     "moduleResolution": "node",
     "types": [
