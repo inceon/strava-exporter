@@ -11,8 +11,9 @@ export default class ImageGenerator {
     private svgElement: SuperSVG;
     private _appSizes: Size = {
         width: window.innerWidth - 20,
-        height: window.innerHeight - 20
+        height: window.innerHeight - 100
     };
+    private sceneScale: number;
     private ratio: Size = {
         width: 9,
         height: 19.5
@@ -26,8 +27,20 @@ export default class ImageGenerator {
     }
 
     protected adaptSizes(): void {
-        this._appSizes.width = 390;
-        this._appSizes.height = 845;
+        let neededSize: Size = {
+            width: 390,
+            height: 845
+        }
+
+        if(neededSize.width < this._appSizes.width || neededSize.height < this._appSizes.height) {
+            this._appSizes.width = neededSize.width;
+            this._appSizes.height = neededSize.height;
+        }
+
+        this.sceneScale = Math.min(
+            this._appSizes.width / neededSize.width,
+            this.appSizes.height / neededSize.height
+        ) - 0.02;
     }
 
     protected createApplication(): void {
@@ -38,11 +51,13 @@ export default class ImageGenerator {
         this.application = new Application({
             view: view,
             backgroundColor: 0xefefff,
-            width: this._appSizes.width,
-            height: this._appSizes.height,
+            width: this._appSizes.width * this.sceneScale,
+            height: this._appSizes.height * this.sceneScale,
             antialias: false
             // resolution: window.devicePixelRatio || 1
-        })
+        });
+
+        this.application.stage.scale.set(this.sceneScale);
     }
 
     get appSizes(): Size {
